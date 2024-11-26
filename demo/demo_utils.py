@@ -32,7 +32,7 @@ USE_CUDA = torch.cuda.is_available()
 def load_noise_samples(noise_path):
     download_extract_file_if_not(
         url="https://dl.fbaipublicfiles.com/muavic/noise_samples.tgz",
-        compressed_filepath= (noise_path/"noise_samples.tgz"),
+        tgz_filepath= (noise_path/"noise_samples.tgz"),
         download_filename="noise_samples"
     )
     noise_dict = defaultdict(list)
@@ -177,7 +177,7 @@ def load_needed_models_for_lip_movement(metadata_path):
     filename = "shape_predictor_68_face_landmarks.dat"
     download_extract_file_if_not(
         url=f"http://dlib.net/files/{filename}.bz2",
-        compressed_filepath=metadata_path/f"{filename}.bz2",
+        tgz_filepath=metadata_path/f"{filename}.bz2",
         download_filename=filename
     )
     shape_predictor_path = metadata_path / filename
